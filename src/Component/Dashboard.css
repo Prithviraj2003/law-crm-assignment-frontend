@@ -1,0 +1,21 @@
+.dashboard {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f4f4f4;
+  }
+  
+  .dashboard h1 {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .dashboard-chart,
+  .dashboard-tasks {
+    grid-column: span 2;
+  }
+  

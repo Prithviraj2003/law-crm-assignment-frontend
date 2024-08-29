@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-menu li {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar-profile {
+  cursor: pointer;
+}
