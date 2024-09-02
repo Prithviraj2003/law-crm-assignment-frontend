@@ -45,7 +45,9 @@ function Matters() {
 
   const getMatters = async () => {
     try {
-      const res = await axios.get("http://localhost:8888/matters");
+      const res = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/matters`
+      );
       setMatters(res.data);
       console.log(res.data);
     } catch (error) {
@@ -56,7 +58,9 @@ function Matters() {
   const getClients = async () => {
     // Fetch clients if needed
     try {
-      const res = await axios.get("http://localhost:8888/clients"); // Adjust URL as needed
+      const res = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/clients`
+      ); // Adjust URL as needed
       setClients(res.data);
     } catch (error) {
       console.log(error);
@@ -66,7 +70,7 @@ function Matters() {
   const getAssociates = async () => {
     // Fetch associates if needed
     try {
-      const res = await axios.get("http://localhost:8888/admins"); // Adjust URL as needed
+      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/admins`); // Adjust URL as needed
       setAssociates(res.data);
     } catch (error) {
       console.log(error);
@@ -93,7 +97,7 @@ function Matters() {
       try {
         const matterToUpdate = { ...newMatter };
         await axios.patch(
-          `http://localhost:8888/matters/${newMatter._id}`,
+          `process.env.REACT_APP_SERVER_URL/matters/${newMatter._id}`,
           matterToUpdate
         );
         alert("Matter updated successfully");
@@ -104,7 +108,10 @@ function Matters() {
     } else {
       try {
         const matterToAdd = { ...newMatter };
-        await axios.post("http://localhost:8888/matters", matterToAdd);
+        await axios.post(
+          `${process.env.REACT_APP_SERVER_URL}/matters`,
+          matterToAdd
+        );
         getMatters();
         alert("Matter added successfully");
       } catch (error) {
@@ -220,7 +227,9 @@ function Matters() {
           className="btn btn-danger ms-2"
           onClick={async () => {
             try {
-              await axios.delete(`http://localhost:8888/matters/${matter._id}`);
+              await axios.delete(
+                `process.env.REACT_APP_SERVER_URL/matters/${matter._id}`
+              );
               alert("Matter deleted successfully");
               getMatters();
             } catch (error) {

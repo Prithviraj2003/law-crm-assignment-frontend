@@ -34,7 +34,7 @@ function Clients() {
   const [associates, setAssociates] = useState([]);
   const getAssociates = async () => {
     try {
-      const res = await axios.get("http://localhost:8888/admins");
+      const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/admins`);
       setAssociates(res.data);
       console.log(res.data);
     } catch (error) {
@@ -43,7 +43,9 @@ function Clients() {
   };
   const getClients = async () => {
     try {
-      const res = await axios.get("http://localhost:8888/clients");
+      const res = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/clients`
+      );
       setClients(res.data);
       console.log(res.data);
     } catch (error) {
@@ -68,7 +70,7 @@ function Clients() {
     if (modelTitle === "Edit Client Details") {
       try {
         const res = await axios.patch(
-          `http://localhost:8888/clients/${newClient._id}`,
+          `${process.env.REACT_APP_SERVER_URL}/clients/${newClient._id}`,
           newClient
         );
         console.log(res);
@@ -89,7 +91,7 @@ function Clients() {
     } else {
       try {
         const res = await axios.post(
-          "http://localhost:8888/clients",
+          `${process.env.REACT_APP_SERVER_URL}/clients`,
           newClient
         );
         console.log(res);
@@ -184,7 +186,9 @@ function Clients() {
           className="btn btn-danger ms-2"
           onClick={async () => {
             try {
-              await axios.delete(`http://localhost:8888/clients/${client._id}`);
+              await axios.delete(
+                `${process.env.REACT_APP_SERVER_URL}/clients/${client._id}`
+              );
               alert("Client deleted successfully");
               getClients();
             } catch (err) {

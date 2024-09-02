@@ -19,7 +19,9 @@ function Task() {
     // Fetch tasks from server when component mounts
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:8888/tasks"); // Update with your API endpoint
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER_URL}/tasks`
+        ); // Update with your API endpoint
         setTasks(response.data);
         console.log(response.data);
       } catch (error) {
@@ -28,7 +30,9 @@ function Task() {
     };
     const fetchAssocoates = async () => {
       try {
-        const response = await axios.get("http://localhost:8888/admins"); // Update with your API endpoint
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER_URL}/admins`
+        ); // Update with your API endpoint
         setAssociates(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
@@ -41,7 +45,10 @@ function Task() {
 
   const handleAddTask = async () => {
     try {
-      const response = await axios.post("http://localhost:8888/tasks", task); // Update with your API endpoint
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/tasks`,
+        task
+      ); // Update with your API endpoint
       setTasks([...tasks, response.data]);
       setTask({
         title: "",
@@ -158,9 +165,7 @@ function Task() {
                 }}
                 value={task.assignedTo}
               >
-                <option value="">
-                  Select Associate
-                </option>
+                <option value="">Select Associate</option>
                 {associates.map((associate) => (
                   <option value={associate._id}>{associate.username}</option>
                 ))}
