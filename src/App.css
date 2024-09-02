@@ -1,6 +1,6 @@
 .App {
   font-family: Arial, sans-serif;
-  width: min-content;
+  width: fit-content;
 }
 
 .main-container {
