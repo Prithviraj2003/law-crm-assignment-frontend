@@ -1,0 +1,17 @@
+/* src/components/Clients.css */
+
+.clients-page {
+    padding: 20px;
+  }
+  
+  .card-component {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .clients-table {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  

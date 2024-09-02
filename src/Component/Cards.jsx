@@ -3,7 +3,7 @@ import "./Cards.css";
 
 function Card({ title, value, subtitle }) {
   return (
-    <div className="card" style={{ width: "18rem" ,height:"fit-content"}}>
+    <div className="card" style={{ width: "18rem", height: "fit-content" }}>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{value}</p>
@@ -13,23 +13,32 @@ function Card({ title, value, subtitle }) {
   );
 }
 
-function taskCard({ title, due, status, priority }) {
+function taskCard({ title, dueDate, assignedTo, status, priority }) {
   return (
     <div className="card mb-2" style={{ width: "18rem" }}>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="" style={{ fontSize: "12px" }}>
-          {due?`Due on ${due}`:"No Due Date"}
+          {dueDate ? `Due on ${dueDate.split("T")[0]}` : "No Due Date"}
+        </p>
+        <p className="" style={{ fontSize: "15px" }}>
+          {assignedTo ? `Assigned to ${assignedTo.username}` : ""}
         </p>
         <p className="" style={{ fontSize: "15px" }}>
           {status}
         </p>
         {priority === "High" ? (
-            <span className="badge bg-danger" style={{color:"white"}}>{priority}</span>
+          <span className="badge bg-danger" style={{ color: "white" }}>
+            {priority}
+          </span>
         ) : priority === "Medium" ? (
-          <span className="badge bg-warning" style={{color:"black"}}>{priority}</span>
+          <span className="badge bg-warning" style={{ color: "black" }}>
+            {priority}
+          </span>
         ) : (
-          <span className="badge bg-success" style={{color:"white"}}>{priority}</span>
+          <span className="badge bg-success" style={{ color: "white" }}>
+            {priority}
+          </span>
         )}
       </div>
     </div>

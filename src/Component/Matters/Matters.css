@@ -1,0 +1,15 @@
+.matters-page {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f4f4f4;
+  }
+  
+  .matters-page h1 {
+    margin-bottom: 20px;
+  }
+  
+  .matters-table {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+  }
